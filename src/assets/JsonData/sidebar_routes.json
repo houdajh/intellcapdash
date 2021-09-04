@@ -1,0 +1,39 @@
+[
+    {
+        "display_name": "Dashboard",
+        "route": "/",
+        "icon": "bx bx-category-alt"
+    },
+    {
+        "display_name": "Customers",
+        "route": "/customers",
+        "icon": "bx bx-user-pin"
+    },
+    {
+        "display_name": "Products",
+        "route": "/products",
+        "icon": "bx bx-package"
+    },
+    {
+        "display_name": "Orders",
+        "route": "/orders",
+        "icon": "bx bx-cart"
+    },
+    
+    {
+        "display_name": "categories",
+        "route": "/categories",
+        "icon": "bx bx-list-ol"
+    },
+    {
+        "display_name": "Add Product",
+        "route": "/add",
+        "icon": "bx bx-gift"
+    },
+    {
+        "display_name": "Admins",
+        "route": "/admin",
+        "icon": "bx bx-store-alt"
+    }
+    
+]
