@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 
 import { Col, Row } from "react-bootstrap";
-import {Image} from "react-bootstrap";
+import {Image ,Container} from "react-bootstrap";
 import  { useState,  } from "react";
 import firebase from "firebase";
 import Chart from 'react-apexcharts'
@@ -161,7 +161,8 @@ if(user){
                         {
                             
                                 <div className="col-6" >
-                                     <Row>
+                                    <Container>
+                                     <Row >
                                      <Col>
                                     <StatusCard
                                         icon={"bx bx-user"}
@@ -170,11 +171,13 @@ if(user){
                                     />
                                     </Col>
                                     <Col>
+                                    <div class="d-flex justify-content-center">
                                    <StatusCard
                                     icon={"bx bx-cart"}
                                     count={sizeP}
                                     title={"Total Product"}
                                     />
+                                    </div>
                                     </Col>
                                     </Row>
                                     <Row>
@@ -193,7 +196,7 @@ if(user){
                                      />
                                     </Col>
                                     </Row>
-                                    
+                                    </Container>
                                 </div>
                            
                         }
