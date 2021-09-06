@@ -41,10 +41,13 @@ function UpdatePage(props) {
             uid=element.id;
            elementsArray.reduce((accumulator, currentValue) => {
               if (currentValue.id) {
-                if(currentValue.id =='image1' || currentValue.id =='image2' || currentValue.id =='image3'|| currentValue.id =='image4' ){
+                if(currentValue.id ==='image1' || currentValue.id ==='image2' || currentValue.id ==='image3'|| currentValue.id ==='image4' ){
                   db.collection("produits").doc(props.location.state.id.trim()).set(
                    
-                  {'categoryId':uid , 'id':props.location.state.id.trim(), 'images': firebase.firestore.FieldValue.arrayUnion(currentValue.value)},{merge:true}  
+                  {'categoryId':uid ,
+                   'id':props.location.state.id.trim(), 
+                   'images': firebase.firestore.FieldValue.arrayUnion(currentValue.value)
+                  },{merge:true}  
                 ).then(()=> window.location.href="/products")
                 .catch((err)=>console.log(err.message) )  }
                }
@@ -62,7 +65,6 @@ function UpdatePage(props) {
       let [descriptionP, setdescriptionP] = React.useState("");
       let [priceP, setpriceP] = React.useState("");
       let [oldPriceP, setoldPriceP] = React.useState("");
-      let [nbNoteP, setnbNoteP] = React.useState("");
       let [picture1P, setpicture1P] = React.useState("");
       let [picture2P, setpicture2P] = React.useState("");
       let [picture3P, setpicture3P] = React.useState("");
@@ -70,17 +72,16 @@ function UpdatePage(props) {
       const getData=async(id)=>{
        var updatedProduct=db.collection("produits");
       await updatedProduct.doc(id).get().then(function(element){
-        console.log(element.data().title); 
-        titleP = element.data().title;
+        titleP = element.data().titre;
          setTitle(titleP);
          descriptionP = element.data().description;
          setdescriptionP(descriptionP);
-         priceP = element.data().price;
+         priceP = element.data().prix;
          setpriceP(priceP);
-         oldPriceP = element.data().oldprice;
+         oldPriceP = element.data().oldPrix;
          setoldPriceP(oldPriceP);
-         nbNoteP = element.data().nbNote;
-         setnbNoteP(nbNoteP);
+        // nbNoteP = element.data().nbNote;
+        // setnbNoteP(nbNoteP);
          picture1P = element.data().images[0];
          setpicture1P(picture1P);
          picture2P = element.data().images[1];
@@ -137,10 +138,7 @@ function UpdatePage(props) {
             <Form.Label>oldprice</Form.Label>
             <Form.Control size="lg"  id="oldprice" type="text"  required defaultValue={oldPriceP} />
           </Form.Group>
-          <Form.Group >
-            <Form.Label>nbNote</Form.Label>
-            <Form.Control size="lg"  id="nbNote" type="text"  required defaultValue={nbNoteP} />
-          </Form.Group>
+         
           <Form.Group >
             <Form.Label>picture 1</Form.Label>
             <Form.Control size="lg"  id="image1" type="text"  required defaultValue={picture1P} />

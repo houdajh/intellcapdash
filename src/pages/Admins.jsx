@@ -37,8 +37,7 @@ function Admins() {
   const deleteProduct = async (id) => { 
     
     await firebase.firestore().collection("Admin").doc(id.trim()).delete();
-    console.log(id);
-    console.log(id.length)
+    
     window.location.reload();
   };
   

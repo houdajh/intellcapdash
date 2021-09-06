@@ -93,15 +93,16 @@ function Products(props) {
                         var id = products.id
                         return(
                             <tr>
-                                <td>{products.title}</td>
+                                <td>{products.titre}</td>
                                 <td> <img src={ products.images[0] } alt="Product Pic" height="150px" width="150px" /></td>
-                                <td>{products.oldprice}</td>
-                                <td>{products.price}</td>
+                                <td>{products.oldPrix}</td>
+                                <td>{products.prix}</td>
                                 <td>{products.description}</td>
                                 
                                      
                                     <Button variant="secondary"  onClick={()=>props.history.push({pathname: '/update',
-                                        state:  { 'id' :products.id , 
+                                        state:  {
+                                         'id' :products.id , 
                                         'idq' :products.categoryId}
                                     })}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

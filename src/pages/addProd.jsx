@@ -45,12 +45,15 @@ function FormPage(props) {
                 if(currentValue.id ==='image1' || currentValue.id ==='image2' || currentValue.id ==='image3'|| currentValue.id ==='image4' ){
                   db.collection("produits").doc(docRef.id).set(
                    
-                  {'categoryId':uid ,'id':docRef.id , 'images': firebase.firestore.FieldValue.arrayUnion(currentValue.value)},{merge:true}  
-                ).then(()=> window.location.href="/products")
+                  {
+                    'categoryId':uid ,
+                    'id':docRef.id , 
+                    'images': firebase.firestore.FieldValue.arrayUnion(currentValue.value)
+                  },{merge:true}  
+                ).then(()=> console.log("window.location.href=/products"))
                 .catch((err)=>console.log(err.message) ) 
                }
                }
-        
               return accumulator;
             },{});
 
@@ -58,7 +61,6 @@ function FormPage(props) {
         });
         
     });
-    
     
     
     
@@ -115,10 +117,7 @@ function FormPage(props) {
             <Form.Label>oldprice</Form.Label>
             <Form.Control size="lg"  id="oldprice" type="text"  required placeholder=" oldprice" />
           </Form.Group>
-          <Form.Group >
-            <Form.Label>nbNote</Form.Label>
-            <Form.Control size="lg"  id="nbNote" type="text"  required placeholder="nbNote" />
-          </Form.Group>
+          
           <Form.Group >
             <Form.Label>picture 1</Form.Label>
             <Form.Control size="lg"  id="image1" type="text"  required placeholder="Link 1" />
