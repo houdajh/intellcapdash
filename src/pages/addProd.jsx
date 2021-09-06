@@ -12,8 +12,6 @@ import { db } from '../firebase/firebase';
 import firebase from "firebase";
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
-
-import imagevar from "../assets/images/signIn.jpg";
 import { useEffect , useState} from 'react';
 
 function FormPage(props) {
@@ -24,7 +22,7 @@ function FormPage(props) {
   
       const formData = elementsArray.reduce((accumulator, currentValue) => {
         if (currentValue.id) {
-          if(currentValue.id ==='title' || currentValue.id ==='price'|| currentValue.id ==='nbNote'|| currentValue.id ==='oldprice'|| currentValue.id ==='description')
+          if(currentValue.id ==='title' || currentValue.id ==='prix'|| currentValue.id ==='category'|| currentValue.id ==='oldprix'|| currentValue.id ==='description')
           accumulator[currentValue.id] = currentValue.value;
         }
   
@@ -40,20 +38,16 @@ function FormPage(props) {
           value.docs.forEach(function(element){
             
             uid=element.id;
-             elementsArray.reduce((accumulator, currentValue) => {
+            const ImageData = elementsArray.reduce((accumulator, currentValue) => {
               if (currentValue.id) {
                 if(currentValue.id ==='image1' || currentValue.id ==='image2' || currentValue.id ==='image3'|| currentValue.id ==='image4' ){
                   db.collection("produits").doc(docRef.id).set(
                    
-                  {
-                    'categoryId':uid ,
-                    'id':docRef.id , 
-                    'images': firebase.firestore.FieldValue.arrayUnion(currentValue.value)
-                  },{merge:true}  
-                ).then(()=> console.log("window.location.href=/products"))
-                .catch((err)=>console.log(err.message) ) 
+                  {'categoryId':uid ,'id':docRef.id , 'images': firebase.firestore.FieldValue.arrayUnion(currentValue.value)},{merge:true}  
+                ).then(()=> window.location.href="/Products")
+                .catch((err)=>console.log(err.message) )  }
                }
-               }
+        
               return accumulator;
             },{});
 
@@ -61,6 +55,7 @@ function FormPage(props) {
         });
         
     });
+    
     
     
     
@@ -72,16 +67,6 @@ function FormPage(props) {
     const [categorie, setCategory] = React.useState('');
 
 
-
-    const [user, setUser] = useState(null);
-    useEffect(() => {
-      const authObserver = firebase.auth().onAuthStateChanged((user) => {
-        setUser(user);
-      });
-      return authObserver;
-    });
-
-    if (user ) {
   return (
     <>
     <div>
@@ -111,13 +96,13 @@ function FormPage(props) {
           </Form.Group>
           <Form.Group >
             <Form.Label>price</Form.Label>
-            <Form.Control size="lg"  id="price" type="text"  required placeholder=" price" />
+            <Form.Control size="lg"  id="prix" type="text"  required placeholder=" price" />
           </Form.Group>
           <Form.Group >
             <Form.Label>oldprice</Form.Label>
-            <Form.Control size="lg"  id="oldprice" type="text"  required placeholder=" oldprice" />
+            <Form.Control size="lg"  id="oldprix" type="text"  required placeholder=" oldprice" />
           </Form.Group>
-          
+        
           <Form.Group >
             <Form.Label>picture 1</Form.Label>
             <Form.Control size="lg"  id="image1" type="text"  required placeholder="Link 1" />
@@ -157,10 +142,10 @@ function FormPage(props) {
           value={categorie}
           onChange={HandleChange}
         >
-          <MenuItem value={10}>Clothing</MenuItem>
-          <MenuItem value={20}> Bags Accs</MenuItem>
-          <MenuItem value={30}>Shoes</MenuItem>
-          <MenuItem value={40}>Sportswear</MenuItem>
+          <MenuItem value={"2xyxcmoLeg5ZDXDDSJO3"}>Clothing</MenuItem>
+          <MenuItem value={"3OrHH9dWRjIFZlscXF10"}> Bags Accs</MenuItem>
+          <MenuItem value={"OaMNnurnPIQPkbfppitm"}>Shoes</MenuItem>
+          <MenuItem value={"x1UkcfU99mTGtAZWeCPv"}>Sportswear</MenuItem>
         </Select>
 <br></br>
 <br></br>
@@ -180,49 +165,6 @@ ADD
     
     </>
   );
-}else {
-  return (
-    <div>
-      <div>
-        <Row>
-          <h1>Welcome to the dashboard </h1>
-          <h1> Please sign In first</h1>
-          <Col>
-            <br></br>
-            <br></br>
-            <a
-              href="/register"
-              class="btn btn-danger btn-lg active"
-              role="button"
-              aria-pressed="true"
-            >
-              Sign Up
-            </a>
-            <br></br>
-            <br></br>
-          </Col>
-          <Col>
-            <br></br>
-            <br></br>
-            <a
-              href="/signIn"
-              class="btn btn-dark btn-lg active"
-              role="button"
-              aria-pressed="true"
-            >
-              Sign In
-            </a>
-          </Col>
-          <Col>
-            <div>
-              <Image src={imagevar} thumbnail style={{ border: "none" }} />
-            </div>
-          </Col>
-        </Row>
-      </div>
-    </div>
-  );
-}
 }
 
 export default FormPage;
