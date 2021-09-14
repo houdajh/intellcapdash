@@ -83,6 +83,7 @@ function Products(props) {
                         <th>Images</th>
                         <th>old price</th>
                         <th>Price</th>
+                        <th>likes</th>
                         <th>Description</th>
                         
                         
@@ -97,6 +98,7 @@ function Products(props) {
                                 <td> <img src={ products.images[0] } alt="Product Pic" height="150px" width="150px" /></td>
                                 <td>{products.oldPrix}</td>
                                 <td>{products.prix}</td>
+                                <td>{products.countlikes}</td>
                                 <td>{products.description}</td>
                                 
                                      

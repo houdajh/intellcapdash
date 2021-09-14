@@ -156,53 +156,46 @@ if(user){
         <div>
             <h2 className="page-header">Dashboard</h2>
             <div className="row">
-                <div className="col-6">
+                <div className="col-8">
                     <div className="row">
                         {
                             
                                 <div className="col-6" >
-                                    <Container>
-                                     <Row >
-                                     <Col>
+                                    
                                     <StatusCard
                                         icon={"bx bx-user"}
                                         count={size}
                                         title={"total users"}
                                     />
-                                    </Col>
-                                    <Col>
-                                    <div class="d-flex justify-content-center">
+                                    
+                                    
                                    <StatusCard
                                     icon={"bx bx-cart"}
                                     count={sizeP}
-                                    title={"Total Product"}
+                                    title={"Total Products"}
                                     />
-                                    </div>
-                                    </Col>
-                                  
-                                   
-                                    <Col>
-                                     <StatusCard
+                                    
+                                </div>
+                                
+                           
+                        }
+                        
+                    </div>
+                </div>
+                <div className="col-4">
+                    
+                    <StatusCard
                                     icon={"bx bx-receipt"}
                                     count={sizeO}
                                     title={ "Total orders"}
                                      />
-                                     </Col>
-                                     <Col>
-                                    <StatusCard
+                                      <StatusCard
                                     icon={ "bx bx-category"}
                                      count={ sizeG}
                                     title={"Total Categories"}
                                      />
-                                    </Col>
-                                    </Row>
-                                    </Container>
-                                </div>
-                           
-                        }
-                    </div>
+                    
                 </div>
-                
                 
             </div>
         </div>

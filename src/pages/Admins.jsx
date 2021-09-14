@@ -77,8 +77,10 @@ function Admins() {
                     </thead>
                     {admin && 
                     admin.map(admin =>{
+                      
                         return(
                           <tr>
+                            
                               <td>{admin.email}</td>
                               <Button variant="danger"  onClick={async() => await deleteProduct(admin.email)}>
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-trash" viewBox="0 0 16 16">

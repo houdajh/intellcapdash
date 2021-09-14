@@ -45,7 +45,7 @@ function Orders() {
       return (
         <div className ="Orders">
         <thead class="thead-dark">
-        <h1>Orders  List</h1>
+        <h1>Orders  </h1>
         <tr>
             <th>Title of product</th>
             <th>Name of Customer</th>
