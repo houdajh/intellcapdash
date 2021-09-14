@@ -179,8 +179,8 @@ if(user){
                                     />
                                     </div>
                                     </Col>
-                                    </Row>
-                                    <Row>
+                                  
+                                   
                                     <Col>
                                      <StatusCard
                                     icon={"bx bx-receipt"}

@@ -22,7 +22,7 @@ function UpdatePage(props) {
   
       const formData = elementsArray.reduce((accumulator, currentValue) => {
         if (currentValue.id) {
-          if(currentValue.id ==='title' || currentValue.id ==='price'|| currentValue.id ==='category'|| currentValue.id ==='nbNote'|| currentValue.id ==='oldprice'|| currentValue.id ==='description')
+          if(currentValue.id ==='titre' || currentValue.id ==='prix'|| currentValue.id ==='category'|| currentValue.id ==='nbNote'|| currentValue.id ==='oldPrix'|| currentValue.id ==='description')
           accumulator[currentValue.id] = currentValue.value;
         }
   
@@ -44,7 +44,7 @@ function UpdatePage(props) {
                 if(currentValue.id ==='image1' || currentValue.id ==='image2' || currentValue.id ==='image3'|| currentValue.id ==='image4' ){
                   db.collection("produits").doc(props.location.state.id.trim()).set(
                    
-                  {'categoryId':uid ,
+                  {'categorieId':uid ,
                    'id':props.location.state.id.trim(), 
                    'images': firebase.firestore.FieldValue.arrayUnion(currentValue.value)
                   },{merge:true}  
@@ -63,8 +63,8 @@ function UpdatePage(props) {
      const themeReducer = useSelector(state => state.ThemeReducer.mode)
       let [titleP, setTitle] = React.useState("");
       let [descriptionP, setdescriptionP] = React.useState("");
-      let [priceP, setpriceP] = React.useState("");
-      let [oldPriceP, setoldPriceP] = React.useState("");
+      let [priceP, setpriceP] = React.useState();
+      let [oldPriceP, setoldPriceP] = React.useState();
       let [picture1P, setpicture1P] = React.useState("");
       let [picture2P, setpicture2P] = React.useState("");
       let [picture3P, setpicture3P] = React.useState("");
@@ -77,7 +77,7 @@ function UpdatePage(props) {
          descriptionP = element.data().description;
          setdescriptionP(descriptionP);
          priceP = element.data().prix;
-         setpriceP(priceP);
+         setpriceP(parseFloat(priceP));
          oldPriceP = element.data().oldPrix;
          setoldPriceP(oldPriceP);
         // nbNoteP = element.data().nbNote;
@@ -94,6 +94,7 @@ function UpdatePage(props) {
       
     }
     console.log(props.location.state.id)
+
     getData(props.location.state.id.trim());
     const HandleChange = (event) => {
       setCategory(event.target.value);
@@ -119,7 +120,7 @@ function UpdatePage(props) {
       
         <br/> <Form.Group >
             <Form.Label>title</Form.Label>
-            <Form.Control size="lg"  id="title" type="text"  required defaultValue={titleP} />
+            <Form.Control size="lg"  id="titre" type="text"  required defaultValue={titleP} />
           </Form.Group>
               {/* <Form.Group  >
                   <Form.Label >category</Form.Label>
@@ -132,11 +133,11 @@ function UpdatePage(props) {
           </Form.Group>
           <Form.Group >
             <Form.Label>price</Form.Label>
-            <Form.Control size="lg"  id="price" type="text"  required defaultValue={priceP} />
+            <Form.Control size="lg"  id="prix" type="number"  required defaultValue={priceP} />
           </Form.Group>
           <Form.Group >
             <Form.Label>oldprice</Form.Label>
-            <Form.Control size="lg"  id="oldprice" type="text"  required defaultValue={oldPriceP} />
+            <Form.Control size="lg"  id="oldPrix" type="number"  required defaultValue={oldPriceP} />
           </Form.Group>
          
           <Form.Group >
@@ -179,7 +180,7 @@ function UpdatePage(props) {
           onChange={HandleChange}
         >
           <MenuItem value={"2xyxcmoLeg5ZDXDDSJO3"}>Clothing</MenuItem>
-          <MenuItem value={"3OrHH9dWRjIFZlscXF10"}> Bags Accs</MenuItem>
+          <MenuItem value={"3OrHH9dWRjIFZlscXF10"}>Bags Accs</MenuItem>
           <MenuItem value={"OaMNnurnPIQPkbfppitm"}>Shoes</MenuItem>
           <MenuItem value={"x1UkcfU99mTGtAZWeCPv"}>Sportswear</MenuItem>
         </Select>

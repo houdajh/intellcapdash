@@ -52,13 +52,16 @@ function Orders() {
             <th>adress of Customer</th>
             <th>email of Customer</th>
             <th>phone number</th>
+            <th>size</th>
+            <th>color</th>
+            <th>description</th>
             <th>Quantity</th>
         </tr>
         </thead>
         
         {orders && 
         orders.map((index) =>{
-            
+        
         console.log(index)
             return(
                 <tr>
@@ -67,6 +70,9 @@ function Orders() {
                     <td>{ index[Object.keys(index)].address}</td>
                     <td> { index[Object.keys(index)].email} </td>
                     <td> { index[Object.keys(index)].phone} </td>
+                    <td> { index[Object.keys(index)].size} </td>
+                    <td> { index[Object.keys(index)].color} </td>
+                    <td> { index[Object.keys(index)].description} </td>
                     <td> { index[Object.keys(index)].counter} </td>
                 </tr>
             )

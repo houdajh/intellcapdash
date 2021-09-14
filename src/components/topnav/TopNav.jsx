@@ -4,7 +4,7 @@ import './topnav.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckSquare, faCoffee } from '@fortawesome/fontawesome-free-solid'
 import { Link } from 'react-router-dom'
-import { faUsers, faCut, faBullhorn, faPenNib, faCircle, faPalette, faVolumeUp, faSmile, faGrin, faShekelSign, faTv, faUserTie, faFolder, faPaintBrush, faCircleNotch, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faUsers,faUser, faCut, faBullhorn, faPenNib, faCircle, faPalette, faVolumeUp, faSmile, faGrin, faShekelSign, faTv, faUserTie, faFolder, faPaintBrush, faCircleNotch, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import ThemeMenu from '../thememenu/ThemeMenu'
 
 import  { useState,  } from "react";
@@ -58,7 +58,7 @@ if(user){
                 <div className="topnav__right-item">
                     {/* dropdown here */}
                    
-                    <p>  <FontAwesomeIcon icon={faUsers} /> {user.email} </p>
+                    <p>  <FontAwesomeIcon icon={faUser} /> {user.email} </p>
                 </div>
                 <div className="topnav__right-item">
                 <button onClick={signOut} type="button" class="btn btn-danger">Sign out</button>
