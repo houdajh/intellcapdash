@@ -30,8 +30,7 @@ function Customers() {
     });
     return authObserver;
   });
-
-  if (user) {
+  
     return (
       <div className="Customers">
         <thead className="thead-dark">
@@ -58,49 +57,8 @@ function Customers() {
           })}
       </div>
     );
-  } else {
-    return (
-      <div>
-        <div>
-          <Row>
-            <h1>Welcome to the dashboard </h1>
-            <h1> Please sign In first</h1>
-            <Col>
-              <br></br>
-              <br></br>
-              <a
-                href="/register"
-                class="btn btn-danger btn-lg active"
-                role="button"
-                aria-pressed="true"
-              >
-                Sign Up
-              </a>
-              <br></br>
-              <br></br>
-            </Col>
-            <Col>
-              <br></br>
-              <br></br>
-              <a
-                href="/signIn"
-                class="btn btn-dark btn-lg active"
-                role="button"
-                aria-pressed="true"
-              >
-                Sign In
-              </a>
-            </Col>
-            <Col>
-              <div>
-                <Image src={imagevar} thumbnail style={{ border: "none" }} />
-              </div>
-            </Col>
-          </Row>
-        </div>
-      </div>
-    );
-  }
+  
+  
 }
 
 export default Customers;

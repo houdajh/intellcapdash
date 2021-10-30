@@ -18,27 +18,7 @@ import { useAuth } from "./context/AuthContext"
 
 
 
-    var uiConfig = {
-      signInFlow: "popup",
-      signInOptions: [
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      ],
-      callbacks: {
-        signInSuccessWithAuthResult: async (authResult) => {
-          const userInfo = authResult.additionalUserInfo;
-          if (userInfo.isNewUser && userInfo.providerId === "password") {
-            try {
-              await authResult.user.sendEmailVerification();
-              console.log("Check your email.");
-            } catch (e) {
-              console.log(e);
-            }
-          }
-          return false;
-        },
-      },
-    };
+    
     
     
     
@@ -54,6 +34,29 @@ import { useAuth } from "./context/AuthContext"
       const [loading, setLoading] = useState(false)
       const history = useHistory()
       const { signup } = useAuth()
+
+      var uiConfig = {
+        signInFlow: "popup",
+        signInOptions: [
+          firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        ],
+        callbacks: {
+          signInSuccessWithAuthResult: async (authResult) => {
+            const userInfo = authResult.additionalUserInfo;
+            if (userInfo.isNewUser && userInfo.providerId === "password") {
+              try {
+                await authResult.user.sendEmailVerification();
+                console.log("Check your email.");
+                
+              } catch (e) {
+                console.log(e);
+              }
+            }
+            return false;
+          },
+        },
+      };
     
       async function handleSubmit(e) {
         e.preventDefault()
@@ -62,6 +65,7 @@ import { useAuth } from "./context/AuthContext"
           return setError("Passwords do not match")
         }
     
+        
         try {
           setError("")
           setLoading(true)

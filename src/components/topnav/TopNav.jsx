@@ -50,15 +50,15 @@ useEffect(() => {
 if(user){
     return (
         <div className='topnav'>
+             <p>  <FontAwesomeIcon icon={faUser} /> {user.email} </p>
             <div className="topnav__search">
-                <input type="text" placeholder='Search here...' />
-                <i className='bx bx-search'></i>
+                
             </div>
             <div className="topnav__right">
                 <div className="topnav__right-item">
                     {/* dropdown here */}
                    
-                    <p>  <FontAwesomeIcon icon={faUser} /> {user.email} </p>
+                   
                 </div>
                 <div className="topnav__right-item">
                 <button onClick={signOut} type="button" class="btn btn-danger">Sign out</button>

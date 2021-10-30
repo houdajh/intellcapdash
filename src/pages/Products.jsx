@@ -66,18 +66,17 @@ function Products(props) {
   }
 
   
-      
-        if (user) {
             return(
                 <div className ="Products">
                     <thead class="thead-dark" >
-                    <h1>Products</h1>
+                    
                    <Button variant="danger" 
-                     onClick={()=> window.location.href="/add"}>Add new product 
+                     onClick={()=> window.location.href="/add"}>Add product 
                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                 <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
                                 </svg>
                                     </Button> 
+                                    <h1>Products</h1>
                     <tr>
                         <th>product title</th>
                         <th>Images</th>
@@ -85,6 +84,7 @@ function Products(props) {
                         <th>Price</th>
                         <th>likes</th>
                         <th>Description</th>
+                        <th> </th>
                         
                         
                     </tr>
@@ -100,7 +100,7 @@ function Products(props) {
                                 <td>{products.prix}</td>
                                 <td>{products.countlikes}</td>
                                 <td>{products.description}</td>
-                                
+                                <td>
                                      
                                     <Button variant="secondary"  onClick={()=>props.history.push({pathname: '/update',
                                         state:  {
@@ -114,6 +114,7 @@ function Products(props) {
                                       </svg>
                                     </Button> 
                                     <br></br>
+                                    <br></br>
                                     <Button variant="danger"  onClick={async() =>await deleteProduct(id)
                                                                                  
                                                                                 
@@ -124,6 +125,8 @@ function Products(props) {
                                           <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
                                         </svg>
                                     </Button>   
+                                    </td>
+                                    
                             </tr>
                            
                         )
@@ -132,49 +135,7 @@ function Products(props) {
                 </div>
             )
            
-                }else {
-                    return (
-                      <div>
-                        <div>
-                          <Row>
-                            <h1>Welcome to the dashboard </h1>
-                            <h1> Please sign In first</h1>
-                            <Col>
-                              <br></br>
-                              <br></br>
-                              <a
-                                href="/register"
-                                class="btn btn-danger btn-lg active"
-                                role="button"
-                                aria-pressed="true"
-                              >
-                                Sign Up
-                              </a>
-                              <br></br>
-                              <br></br>
-                            </Col>
-                            <Col>
-                              <br></br>
-                              <br></br>
-                              <a
-                                href="/signIn"
-                                class="btn btn-dark btn-lg active"
-                                role="button"
-                                aria-pressed="true"
-                              >
-                                Sign In
-                              </a>
-                            </Col>
-                            <Col>
-                              <div>
-                                <Image src={imagevar} thumbnail style={{ border: "none" }} />
-                              </div>
-                            </Col>
-                          </Row>
-                        </div>
-                      </div>
-                    );
-                  }
+               
                 }
     export default Products
 

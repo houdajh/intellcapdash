@@ -107,7 +107,7 @@ function FormPage(props) {
                   <br/>
                   <Form.Group >
                     <Form.Label>title</Form.Label>
-                    <Form.Control size="lg" name="titre" id="titre" type="text"  required placeholder="titre" onChange={handleInputsChanges}/>
+                    <Form.Control style={{ width:"70%" }} size="lg" name="titre" id="titre" type="text"  required placeholder="titre" onChange={handleInputsChanges}/>
                   </Form.Group>
               {/* <Form.Group  >
                   <Form.Label >category</Form.Label>
@@ -117,35 +117,35 @@ function FormPage(props) {
               {/* khadi njreb akhir solution 3la allah */}
               <Form.Group >
             <Form.Label>description</Form.Label>
-            <Form.Control size="lg" name="description" id="description" type="text" required placeholder="description" 
+            <Form.Control style={{ width:"70%" }} size="lg" name="description" id="description" type="text" required placeholder="description" 
               onChange={handleInputsChanges} />
           </Form.Group>
           <Form.Group >
             <Form.Label>price</Form.Label>
-            <Form.Control size="lg" name="prix" id="prix" type="text"  required placeholder=" prix" onChange={handleInputsChanges}/>
+            <Form.Control style={{ width:"70%" }} size="lg" name="prix" id="prix" type="text"  required placeholder=" prix" onChange={handleInputsChanges}/>
           </Form.Group>
           <Form.Group >
             <Form.Label>oldprice</Form.Label>
-            <Form.Control size="lg" name="oldPrix" id="oldPrix" type="text"  required placeholder=" oldPrix" onChange={handleInputsChanges}/>
+            <Form.Control style={{ width:"70%" }} size="lg" name="oldPrix" id="oldPrix" type="text"  required placeholder=" oldPrix" onChange={handleInputsChanges}/>
           </Form.Group>
         
 
           <Form.Group >
             <Form.Label>picture 1</Form.Label>
-            <Form.Control size="lg" id="image1" type="text" required placeholder="Link 1" 
+            <Form.Control style={{ width:"70%" }} size="lg" id="image1" type="text" required placeholder="Link 1" 
             onChange={(e) => handleLinksChange(e, 0)}/>
           </Form.Group>
           <Form.Group >
             <Form.Label>picture 2</Form.Label>
-            <Form.Control size="lg"  id="image2" type="text"   placeholder="Link 2" onChange={(e) => handleLinksChange(e, 1)}/>
+            <Form.Control style={{ width:"70%" }} size="lg"  id="image2" type="text"   placeholder="Link 2" onChange={(e) => handleLinksChange(e, 1)}/>
           </Form.Group>
           <Form.Group >
             <Form.Label>picture 3</Form.Label>
-            <Form.Control size="lg"  id="image3" type="text"   placeholder="Link 3" onChange={(e) => handleLinksChange(e, 2)}/>
+            <Form.Control style={{ width:"70%" }} size="lg"  id="image3" type="text"   placeholder="Link 3" onChange={(e) => handleLinksChange(e, 2)}/>
           </Form.Group>
           <Form.Group >
             <Form.Label>picture 4</Form.Label>
-            <Form.Control size="lg"  id="image4" type="text"   placeholder="Link 4" onChange={(e) => handleLinksChange(e, 3)}/>
+            <Form.Control style={{ width:"70%" }} size="lg"  id="image4" type="text"   placeholder="Link 4" onChange={(e) => handleLinksChange(e, 3)}/>
           </Form.Group>
          
               <br></br>
@@ -166,7 +166,7 @@ function FormPage(props) {
 <InputLabel id="demo-simple-select-label">Category</InputLabel>
         <Select id='category'
           labelId="demo-simple-select-label"
-          
+          style={{ width:"70%" }}
           value={categorie}
           onChange={HandleChange}
         >

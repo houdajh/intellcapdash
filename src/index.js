@@ -17,6 +17,8 @@ import ForgotPassword from "./ForgotPassword";
 import Layout from "./components/layout/Layout";
 import { AuthProvider } from "./context/AuthContext"
 
+import PrivateRoute from "./PrivateRoute"
+
 const store = createStore(rootReducer);
 
 document.title = "Paris JJ";
@@ -30,7 +32,7 @@ ReactDOM.render(
           <Route path="/signIn" exact component={SignIn} />
           <Route path="/register" exact component={Register} />
           <Route path="/forgot-password" exact component={ForgotPassword} />
-          <Route path="/" component={Layout} />
+          <PrivateRoute  path="/" component={Layout} />
         </Switch>
         </AuthProvider>
       </BrowserRouter>
@@ -39,7 +41,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

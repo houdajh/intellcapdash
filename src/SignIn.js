@@ -27,14 +27,17 @@ var uiConfig = {
       if (userInfo.isNewUser && userInfo.providerId === "password") {
         try {
           await authResult.user.sendEmailVerification();
+
           console.log("Check your email.");
         } catch (e) {
           console.log(e);
         }
+        
       }
       return false;
     },
   },
+  signInSuccessUrl :'/',
 };
 
 
@@ -57,8 +60,6 @@ const SignIn = () => {
     e.preventDefault()
     console.log(emailRef.current.value)
     try {
-      console.log("saaaaaamiiiiiii3")
-      console.log(emailRef.current.value)
       db.collection("Admin").doc(emailRef.current.value).get()
       .then(doc => {
         if(doc.exists){
